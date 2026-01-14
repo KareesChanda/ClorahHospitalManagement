@@ -1,18 +1,24 @@
 package com.clorah.Clorah.Hospital.service;
 
 import com.clorah.Clorah.Hospital.models.Bill;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class BillService {
+    //Logger is important to manage errors as the application complexity grows
+    private static final Logger logger = LoggerFactory.getLogger(DoctorService.class);
+
     public Bill createBill(Bill bill){
         //logic to now create the patient into the db
         try{
             return null;
         } catch (Exception e) {
             System.out.println("Error Message: " + e.getMessage());
+            logger.error("An error occurred while creating a bill: {}", e.getMessage());
             return null;
         }
     }
@@ -21,6 +27,7 @@ public class BillService {
         try{
             return null;
         }catch (Exception e) {
+            logger.error("An error occurred while getting a bill with id {}: {}", id, e.getMessage());
             return null;
         }
     }
@@ -30,6 +37,7 @@ public class BillService {
             return null;
         }catch(Exception e){
             System.out.println("Error Message: " + e.getMessage());
+            logger.error("An error occurred while getting all bills: {}", e.getMessage());
             return null;
         }
     }
@@ -41,6 +49,7 @@ public class BillService {
             return null;
         }catch(Exception e){
             System.out.println("Error Message: " + e.getMessage());
+            logger.error("An error occurred while updating a bill with id {}: {}",id, e.getMessage());
             return null;
         }
     }
@@ -51,6 +60,7 @@ public class BillService {
 
         }catch(Exception e){
             System.out.println("Error Message: " + e.getMessage());
+            logger.error("An error occurred while deleting the bill with id {}: {}", id, e.getMessage());
 
         }
     }
