@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/patients")
@@ -23,15 +24,16 @@ public class PatientController {
 
     //retrieve patient by ID
     @GetMapping("/{id}")
-    public Patient getPatientById(@PathVariable Long id){
+    public Optional<Patient> getPatientById(@PathVariable Long id){
         //use IOC to get the data via bean injection
         return patientService.getPatientById(id);
     }
 
     //update patient information
     @PutMapping("/{id}")
-    public void updatePatientInfo(@PathVariable Long id){
-        patientService.updatePatient(id);
+    public Patient updatePatientInfo(@PathVariable Long id, @RequestBody Patient patient){
+        System.out.println("Updating Patient with ID: "+id);
+        return patientService.updatePatient(id, patient);
     }
 
     //API to retrieve all patients

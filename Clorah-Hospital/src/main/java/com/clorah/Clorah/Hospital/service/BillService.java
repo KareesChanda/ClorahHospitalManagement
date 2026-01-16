@@ -4,6 +4,7 @@ import com.clorah.Clorah.Hospital.models.Bill;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class BillService {
     }
 
 
-    public Bill updateBill(Long id){
+    public Bill updateBill(Long id, @RequestBody Bill bill){
         try{
             System.out.println("patient updating");
             return null;

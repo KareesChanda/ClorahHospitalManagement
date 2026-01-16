@@ -30,8 +30,8 @@ public class BillController {
 
     //edit a bill
     @PutMapping("/{id}")
-    public void editBill(@PathVariable Long id){
-        billService.updateBill(id);
+    public Bill editBill(@PathVariable Long id, Bill bill){
+        return billService.updateBill(id, bill);
     }
 
     //get a bill by unique id

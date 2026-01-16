@@ -36,9 +36,9 @@ public class DoctorController {
     }
     //edit a doctor
     @PutMapping("/{id}")
-    public void editDoctor(@PathVariable Long id){
+    public Doctor editDoctor(@PathVariable Long id, Doctor doctor){
         System.out.println("Edit a doctor's profile");
-        doctorService.updateDoctor(id);
+        return doctorService.updateDoctor(id, doctor);
     }
 
     @DeleteMapping("/{id}")

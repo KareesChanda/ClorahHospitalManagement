@@ -26,7 +26,7 @@ public class AppointmentService {
         }
     }
 
-    public Appointment updateAppointment(Long id){
+    public Appointment updateAppointment(Long id, Appointment appointment){
         try{
             System.out.println("appointment updating");
             return null;

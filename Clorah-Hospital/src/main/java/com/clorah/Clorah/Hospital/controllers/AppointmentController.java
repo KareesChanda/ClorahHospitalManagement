@@ -23,9 +23,9 @@ public class AppointmentController {
 
     //edit an appointment
     @PutMapping("/{id}")
-    public void editAppointment(@PathVariable Long id){
+    public Appointment editAppointment(@PathVariable Long id, @RequestBody Appointment appointment){
         System.out.println("Edit an appointment");
-        appointmentService.updateAppointment(id);
+        return appointmentService.updateAppointment(id, appointment);
     }
 
     //get an appointment by unique id

@@ -3,6 +3,7 @@ import com.clorah.Clorah.Hospital.models.Doctor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class DoctorService {
     }
 
 
-    public Doctor updateDoctor(Long id){
+    public Doctor updateDoctor(Long id, @RequestBody Doctor doctor){
         try{
             System.out.println("patient updating");
             return null;
